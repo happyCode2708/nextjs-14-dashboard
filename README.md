@@ -1,5 +1,8 @@
-## Next.js App Router Course - Starter
+## Next.js 14 Sample
 
 This is the starter template for the Next.js App Router Course. It contains the starting code for the dashboard application.
 
-For more information, see the [course curriculum](https://nextjs.org/learn) on the Next.js Website.
+## ISSUES
+
+1. CSS module have no intelligence, or hint
+2. @ or global import does not found some items in intelligence

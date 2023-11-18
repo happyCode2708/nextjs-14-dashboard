@@ -5,22 +5,21 @@ import { PowerIcon } from '@heroicons/react/24/outline';
 
 export default function SideNav() {
   return (
-    <div className="flex h-full flex-col px-3 py-4 md:px-2">
+    <div className='flex flex-col w-full h-full'>
       <Link
-        className="mb-2 flex h-20 items-end justify-start rounded-md bg-blue-600 p-4 md:h-40"
-        href="/"
+        className='flex bg-blue-600 rounded-md p-4 md:h-40 items-end mb-2 md:w-full'
+        href='/'
       >
-        <div className="w-32 text-white md:w-40">
-          <AcmeLogo />
-        </div>
+        <AcmeLogo />
       </Link>
-      <div className="flex grow flex-row justify-between space-x-2 md:flex-col md:space-x-0 md:space-y-2">
+      <div className='flex flex-row md:flex-col grow gap-2'>
         <NavLinks />
-        <div className="hidden h-auto w-full grow rounded-md bg-gray-50 md:block"></div>
-        <form>
-          <button className="flex h-[48px] grow items-center justify-center gap-2 rounded-md bg-gray-50 p-3 text-sm font-medium hover:bg-sky-100 hover:text-blue-600 md:flex-none md:justify-start md:p-2 md:px-3">
-            <PowerIcon className="w-6" />
-            <div className="hidden md:block">Sign Out</div>
+
+        <div className='md:grow md:block hidden'> </div>
+        <form className='grow md:grow-0'>
+          <button className='flex h-[48px] items-center justify-center gap-2 rounded-md bg-gray-50 p-3 w-full grow md:grow-0'>
+            <PowerIcon className='w-6' />
+            <div className='hidden md:block'>Sign Out</div>
           </button>
         </form>
       </div>
