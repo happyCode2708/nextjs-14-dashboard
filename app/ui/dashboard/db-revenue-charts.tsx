@@ -28,7 +28,7 @@ const DbRevenueChart = (props: { revenue: Revenue[] }) => {
   );
 
   const RenderColumns = (
-    <div className='md:col-span-12 grid grid-cols-12 items-end gap-3'>
+    <div className='col-span-12 grid grid-cols-12 items-end gap-3'>
       {revenue.map((revenueItem, index) => {
         return (
           <div key={index} className='text-center'>
@@ -49,15 +49,20 @@ const DbRevenueChart = (props: { revenue: Revenue[] }) => {
   );
 
   return (
-    <div className={`md:col-span-4  p-5 bg-gray-50 rounded-xl flex flex-col`}>
-      <div className='grid grid-cols-13 bg-white h-full rounded-xl p-5'>
-        {RenderYAxis}
-        {RenderColumns}
-      </div>
+    <div className='md:col-span-4 flex flex-col'>
+      <h2 className={`test-xl md:text-2xl ${lusitana.className}`}>
+        Latest Revenues
+      </h2>
+      <div className={`p-5 bg-gray-50 rounded-xl flex flex-col`}>
+        <div className='grid grid-cols-13 bg-white h-full rounded-xl p-5'>
+          {RenderYAxis}
+          {RenderColumns}
+        </div>
 
-      <div className='flex flex-row items-center pt-3 text-gray-400'>
-        <CalendarIcon className='w-5 h-5 mr-3' />
-        <div>Last 12 months</div>
+        <div className='flex flex-row items-center pt-3 text-gray-400'>
+          <CalendarIcon className='w-5 h-5 mr-3' />
+          <span>Last 12 months</span>
+        </div>
       </div>
     </div>
   );
