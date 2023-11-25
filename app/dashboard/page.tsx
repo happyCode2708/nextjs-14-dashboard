@@ -1,5 +1,5 @@
-import { Card } from '@/app/ui/dashboard/cards';
-import RevenueChart from '@/app/ui/dashboard/revenue-chart';
+// import { Card } from '@/app/ui/dashboard/cards';
+// import RevenueChart from '@/app/ui/dashboard/revenue-chart';
 import LatestInvoices from '@/app/ui/dashboard/latest-invoices';
 import { lusitana } from '@/app/ui/fonts';
 import {
@@ -7,6 +7,10 @@ import {
   fetchLatestInvoices,
   fetchCardData,
 } from '@/app/lib/data';
+
+import DbCard from '@/app/ui/dashboard/db-cards';
+import DbRevenueChart from '@/app/ui/dashboard/db-revenue-charts';
+import DbLatestInvoices from '@/app/ui/dashboard/db-latest-invoices';
 
 const Dashboard_page = async () => {
   const revenue = await fetchRevenue();
@@ -18,14 +22,12 @@ const Dashboard_page = async () => {
     numberOfCustomers,
   } = await fetchCardData();
 
-  console.log('revenue', revenue);
-
   return (
     <main>
       <h1 className={`${lusitana.className} mb-4 text-xl md:text-2xl`}>
         Dashboard
       </h1>
-      <div className='grid gap-6 sm:grid-cols-2 lg:grid-cols-4'>
+      {/* <div className='grid gap-6 sm:grid-cols-2 lg:grid-cols-4'>
         <Card title='Collected' value={totalPaidInvoices} type='collected' />
         <Card title='Pending' value={totalPendingInvoices} type='pending' />
         <Card title='Total Invoices' value={numberOfInvoices} type='invoices' />
@@ -34,9 +36,27 @@ const Dashboard_page = async () => {
           value={numberOfCustomers}
           type='customers'
         />
+      </div> */}
+      <div className='grid gap-6 lg:grid-cols-4 md:grid-cols-2'>
+        <DbCard title='Collected' value={totalPaidInvoices} type='collected' />
+        <DbCard title='Pending' value={totalPendingInvoices} type='pending' />
+        <DbCard
+          title='Total Invoices'
+          value={numberOfInvoices}
+          type='invoices'
+        />
+        <DbCard
+          title='Total Customers'
+          value={numberOfCustomers}
+          type='customers'
+        />
       </div>
       <div className='mt-6 grid grid-cols-1 gap-6 md:grid-cols-4 lg:grid-cols-8'>
-        <RevenueChart revenue={revenue} />
+        <DbRevenueChart revenue={revenue} />
+        <DbLatestInvoices latestInvoices={latestInvoices} />
+      </div>
+      <div className='mt-6 grid grid-cols-1 gap-6 md:grid-cols-4 lg:grid-cols-8'>
+        {/* <RevenueChart revenue={revenue} /> */}
         <LatestInvoices latestInvoices={latestInvoices} />
       </div>
     </main>
