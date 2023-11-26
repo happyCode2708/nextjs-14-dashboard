@@ -9,7 +9,7 @@ export const formatCurrency = (amount: number) => {
 
 export const formatDateToLocal = (
   dateStr: string,
-  locale: string = 'en-US',
+  locale: string = 'en-US'
 ) => {
   const date = new Date(dateStr);
   const options: Intl.DateTimeFormatOptions = {
@@ -66,4 +66,11 @@ export const generatePagination = (currentPage: number, totalPages: number) => {
     '...',
     totalPages,
   ];
+};
+
+export const sleep = (sleepTime: number) => {
+  const DEFAULT_SLEEP_TIME = 2000;
+  return new Promise((resolve) =>
+    setTimeout(resolve, sleepTime ?? DEFAULT_SLEEP_TIME)
+  );
 };
