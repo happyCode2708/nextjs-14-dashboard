@@ -3,11 +3,13 @@ import { generateYAxis } from '@/app/lib/utils';
 import { Revenue } from '@/app/lib/definitions';
 import { lusitana } from '@/app/ui/fonts';
 import { CalendarIcon } from '@heroicons/react/24/outline';
+import { fetchRevenue } from '@/app/lib/data';
 
 const chartHeight = 350;
 
-const DbRevenueChart = (props: { revenue: Revenue[] }) => {
-  const { revenue } = props;
+const DbRevenueChart = async () => {
+  const revenue = await fetchRevenue();
+
   const { yAxisLabels, topLabel } = generateYAxis(revenue);
 
   const RenderYAxis = (
